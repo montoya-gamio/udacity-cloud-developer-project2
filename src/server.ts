@@ -1,4 +1,5 @@
 import express from 'express';
+import{Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
@@ -30,8 +31,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
-  app.get( "/filteredimage", async ( req, res ) => {
-    let {image_url: image_url_path} = req.query;
+  app.get( "/filteredimage", async ( req: Request, res: Response ) => {
+    let {image_url: image_url_path}: { image_url: string; image_url_path: string } = req.query;
 
     //check if the url is valid
     let url;
